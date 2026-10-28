@@ -1,6 +1,9 @@
 package com.tka.entity;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +21,7 @@ public class DepartmentEntity {
 	private String dept_location;
 
 	@OneToMany(mappedBy = "dept_e",fetch = jakarta.persistence.FetchType.EAGER)
+	@JsonIgnore
 	private List<EmployeeEntity> employees;
 
 	public List<EmployeeEntity> getEmployees() {
